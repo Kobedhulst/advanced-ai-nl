@@ -62,4 +62,19 @@ Claude Code leest `CLAUDE.md`, Codex leest `AGENTS.md`. Eén bron: `AGENTS.md`; 
 
 ## Test
 
-Laat de student meteen een vraag stellen over de eigen job of studie. Antwoord met de context erin. De student moet het verschil zien met een leeg chatvenster.
+De test gebeurt niet in dit gesprek. Dit gesprek heeft de context al gezien, dat bewijst niets.
+
+Zeg tegen de student:
+
+1. Open een nieuw terminalvenster.
+2. `cd` naar je eigen map: `studenten/<naam>/`.
+3. Start je tool opnieuw (`claude` of `codex`). Een nieuw gesprek, leeg geheugen.
+4. Stel daar een vraag over je eigen job of studie, zonder iets uit te leggen. Bijvoorbeeld: "Wat zou ik deze week als eerste automatiseren?"
+
+Het antwoord hoort te gaan over de job, de sector en de tools uit `context.md`. Doet het dat, dan is de opzet klaar: het gesprek stopte, de context bleef.
+
+Doet het dat niet? Twee oorzaken, in deze volgorde:
+- De tool is niet in `studenten/<naam>/` geopend. `pwd` moet daarop eindigen.
+- `CLAUDE.md` of `AGENTS.md` ontbreekt in die map. Terug naar "Twee extra bestanden".
+
+Wil de student het verschil zien? Zelfde vraag in de browserversie van ChatGPT of Claude. Dat antwoord gaat over niemand.
