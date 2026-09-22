@@ -18,7 +18,7 @@ Vraag eerst: besturingssysteem (macOS of Windows), welke AI-tool de student gebr
 De student werkt in een terminal-agent, niet in een browser. Welke hangt af van het abonnement:
 
 - Betaalt voor ChatGPT → **Codex**: `npm install -g @openai/codex` (macOS ook: `brew install --cask codex`). Start met `codex`, kies "Sign in with ChatGPT".
-- Betaalt voor Claude → **Claude Code**: macOS `curl -fsSL https://claude.ai/install.sh | bash`, Windows (PowerShell) `irm https://claude.ai/install.ps1 | iex`. Start met `claude`, log in.
+- Betaalt voor Claude → **Claude Code**: macOS `curl -fsSL https://claude.ai/install.sh | bash`, Windows (PowerShell, niet cmd) `irm https://claude.ai/install.ps1 | iex`. Start met `claude`, log in. Nooit met `sudo`: het installatiescript weigert dan.
 
 `npm` ontbreekt? Installeer Node.js van nodejs.org (LTS), terminal opnieuw openen.
 
