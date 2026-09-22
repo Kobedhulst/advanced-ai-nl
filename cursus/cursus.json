@@ -1,18 +1,18 @@
 {
   "fasen": ["Bouwen", "Meten", "Uitbreiden", "Verdedigen", "Overtuigen"],
   "weken": [
-    { "nr": 1, "fase": "Bouwen", "titel": "Wat weet dit ding eigenlijk van jou?" },
-    { "nr": 2, "fase": "Bouwen", "titel": "Moet dit überhaupt een taalmodel zijn?" },
-    { "nr": 3, "fase": "Meten", "titel": "Werkt het, en hoe weet ik dat?" },
-    { "nr": 4, "fase": "Meten", "titel": "Wat kost één run, en wat levert hij op?" },
-    { "nr": 5, "fase": "Meten", "titel": "Waarom verdubbelt slordige context de rekening?" },
-    { "nr": 6, "fase": "Uitbreiden", "titel": "Hoe vindt een assistent zijn bronnen, en vindt hij jou?" },
-    { "nr": 7, "fase": "Uitbreiden", "titel": "Zelf bouwen, kopen of aansluiten?" },
-    { "nr": 8, "fase": "Uitbreiden", "titel": "Wat als het model op je eigen laptop draait?" },
-    { "nr": 9, "fase": "Verdedigen", "titel": "Hoe breek ik mijn eigen tool?" },
-    { "nr": 10, "fase": "Verdedigen", "titel": "Mag dit eigenlijk?" },
-    { "nr": 11, "fase": "Overtuigen", "titel": "Wat weten we echt over de impact?" },
-    { "nr": 12, "fase": "Overtuigen", "titel": "Klopt mijn verhaal?" },
-    { "nr": 13, "fase": "Overtuigen", "titel": "Verdedig het." }
+    { "nr": 1, "fase": "Bouwen", "titel": "Context en setup", "vraag": "Wat weet dit ding eigenlijk van jou?" },
+    { "nr": 2, "fase": "Bouwen", "titel": "Hoe een taalmodel werkt", "vraag": "Moet dit überhaupt een taalmodel zijn?" },
+    { "nr": 3, "fase": "Meten", "titel": "Context engineering en testsets", "vraag": "Werkt het, en hoe weet ik dat?" },
+    { "nr": 4, "fase": "Meten", "titel": "Tokens en kosten", "vraag": "Wat kost één run, en wat levert hij op?" },
+    { "nr": 5, "fase": "Meten", "titel": "Variatie, caching en modelkeuze", "vraag": "Krijg ik twee keer hetzelfde antwoord?" },
+    { "nr": 6, "fase": "Uitbreiden", "titel": "Retrieval en zoeken", "vraag": "Hoe vindt een assistent zijn bronnen, en vindt hij jou?" },
+    { "nr": 7, "fase": "Uitbreiden", "titel": "Tools, MCP en agents", "vraag": "Zelf bouwen, kopen of aansluiten?" },
+    { "nr": 8, "fase": "Uitbreiden", "titel": "Lokale modellen", "vraag": "Wat als het model op je eigen laptop draait?" },
+    { "nr": 9, "fase": "Verdedigen", "titel": "Prompt injection en beveiliging", "vraag": "Hoe breek ik mijn eigen tool?" },
+    { "nr": 10, "fase": "Verdedigen", "titel": "EU AI Act en GDPR", "vraag": "Mag dit eigenlijk?" },
+    { "nr": 11, "fase": "Overtuigen", "titel": "Impact en ethiek", "vraag": "Wat weten we echt over de impact?" },
+    { "nr": 12, "fase": "Overtuigen", "titel": "Memo en peer review", "vraag": "Klopt mijn verhaal?" },
+    { "nr": 13, "fase": "Overtuigen", "titel": "Capstone-verdediging", "vraag": "Verdedig het." }
   ]
 }

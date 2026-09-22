@@ -1,4 +1,6 @@
-# Week 1 — Wat weet dit ding eigenlijk van jou?
+# Week 1 — Context en setup
+
+*Wat weet dit ding eigenlijk van jou?*
 
 Woensdag 23 september, 10:30–13:30.
 
