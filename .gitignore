@@ -17,6 +17,8 @@
 *.jpeg
 !studenten/**/posts/*.png
 !studenten/**/posts/*.jpg
+# Slides: afbeeldingen van de docent in cursus/week-NN/slides/
+!cursus/**/slides/**
 
 # Systeem en tooling
 node_modules/
