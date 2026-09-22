@@ -23,4 +23,7 @@ Elke skill is een gewoon markdownbestand. Lees het en volg de stappen, welke too
 - `.claude/skills/context/SKILL.md` — interviewt de student en schrijft `context.md`.
 - `.claude/skills/week/SKILL.md` — `start week N` (pull upstream, weekbranch) en `dien week N in` (commit eigen map, push, pull request).
 
-Zegt de student "start week 5", "dien week 5 in", "schrijf mijn context" of "help me met de opzet"? Lees dan de bijbehorende skill eerst.
+Zegt de student "start week 5", "dien week 5 in", "schrijf mijn context", "help me met de opzet", of iets over een post, pushen of een pull request? Lees dan de bijbehorende skill eerst.
+
+## Posts
+Elke week één post in `studenten/<naam>/posts/week-NN.md`. Template: `cursus/week-01/post-template.md`. Voorbeeld: `studenten/_voorbeeld/posts/week-01.md`. Wat telt en hoe lang: `cursus/beoordeling/wekelijkse-post.md`. Indienen gaat via de skill `week`.
