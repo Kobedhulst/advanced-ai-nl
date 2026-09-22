@@ -1,50 +1,49 @@
-# Advanced AI for Business — Nederlandstalige groep
+# Advanced AI for Business
 
-Dertien weken, één vraag: **moeten we hier AI voor gebruiken?**
+Nederlandstalige groep, Arteveldehogeschool, 2026–27. Docent: Alexander Coenegrachts.
 
-Je bouwt één klein AI-hulpmiddel voor een echte taak, je meet wat het kan, en je leert beslissen of het de moeite waard is. Elke week publiceer je wat je gedaan hebt.
+Dertien weken, één vraag: moeten we hier AI voor gebruiken?
+
+Je bouwt één klein AI-hulpmiddel voor een echte taak. Je meet wat het kan en wat niet. Elke week publiceer je wat je gedaan hebt. Op het einde schrijf je een advies dat je kan verdedigen.
+
+## Starten
+
+Plak dit in je AI-tool:
+
+```
+Lees https://raw.githubusercontent.com/alexandernacho/advanced-ai-nl/main/.claude/skills/opzet/SKILL.md en volg de stappen met mij. Eén stap per keer, in het Nederlands.
+```
+
+Dat is alles. Je tool leest de rest hier.
 
 ## Hoe deze repo werkt
 
-- `cursus/` — het lesmateriaal, per week. **Alleen lezen.** Ik vul het aan.
-- `cursus/beoordeling/` — hoe je beoordeeld wordt, en de opdrachten.
-- `studenten/<jouw-naam>/` — jouw map. **Alleen hier werk je.**
-- `.claude/skills/` — hulpjes die je AI-tool kan gebruiken (bijvoorbeeld voor de opzet).
+`cursus/` is van mij. Lesmateriaal per week, plus de beoordeling. Je leest het, je wijzigt het niet.
 
-De repo is publiek. Alles wat je erin zet, kan iedereen lezen. Dat is de bedoeling: het is je portfolio.
+`studenten/jouw-naam/` is van jou. Je profiel, je contextbestand, je posts, je Build. Alleen daar werk je.
 
-## De weekcyclus
+De repo is publiek. Wat je erin zet, kan iedereen lezen. Dat is geen bijwerking, dat is het punt: in juni is dit je portfolio.
+
+## Elke week
 
 ```bash
 git checkout main
-git pull upstream main        # nieuw lesmateriaal ophalen
-git push origin main          # je fork bijwerken
-git checkout -b week-05       # een tak voor deze week
-# ... werk in studenten/<jouw-naam>/ ...
-git add studenten/<jouw-naam>
+git pull upstream main        # nieuw lesmateriaal
+git push origin main
+git checkout -b week-05
+# werk in studenten/jouw-naam/
+git add studenten/jouw-naam
 git commit -m "week 5: contextaudit"
 git push origin week-05
 ```
 
-Daarna open je een pull request naar deze repo, met als titel `week-05 — Voornaam Achternaam`. Eén klasgenoot reageert, ik merge. Zodra het gemerged is, staat je post publiek. Dat is De Signal.
+Dan een pull request naar deze repo, titel `week-05 — Voornaam Achternaam`. Eén klasgenoot reageert. Ik merge. Vanaf dan staat je post publiek.
 
-## Eerste keer? Start hier
+## Vier regels
 
-1. Lees `cursus/week-01/README.md`.
-2. Volg `cursus/week-01/checklist.md`, of laat je AI-tool je begeleiden met de prompt in `cursus/week-01/start-prompt.md`.
+1. Je komt alleen aan je eigen map.
+2. Geen sleutels, wachtwoorden of vertrouwelijke bedrijfsdocumenten in de repo. Nooit.
+3. Afbeeldingen alleen in `posts/`, maximaal twee per post, maximaal 300 KB. Terminaluitvoer als tekst, niet als screenshot.
+4. Loopt iets vast: eerst je AI, dan je buur, dan ik.
 
-## Regels
-
-1. Je komt alleen aan `studenten/<jouw-naam>/`.
-2. Nooit een sleutel, wachtwoord of vertrouwelijk bedrijfsdocument in de repo.
-3. Afbeeldingen alleen in je `posts/`-map, maximaal twee per post, maximaal 300 KB.
-4. Terminaluitvoer in een codeblok, niet als screenshot.
-5. Loopt iets vast: eerst je AI-tool, dan je buur, dan ik.
-
-## Beoordeling
-
-Zes onderdelen, één pagina: `cursus/beoordeling/overzicht.md`.
-
----
-
-Docent: Alexander Coenegrachts · Arteveldehogeschool · International Business Management · 2026–27
+Beoordeling: `cursus/beoordeling/overzicht.md`.

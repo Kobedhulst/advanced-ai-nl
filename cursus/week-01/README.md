@@ -1,50 +1,51 @@
 # Week 1 — Wat weet dit ding eigenlijk van jou?
 
-**Woensdag 23 september 2026 · 10:30–13:30 · fase: Bouwen**
+Woensdag 23 september, 10:30–13:30.
 
 ## Waar het om gaat
 
-Een taalmodel weet alleen wat in zijn context zit. Niets over jou, tenzij jij het erin zet. Vandaag zet je het erin, één keer, en daarna nooit meer.
+Je AI weet niets over jou. Elk gesprek begint van nul. Vandaag lossen we dat op, en daarna hoef je het nooit meer uit te leggen.
 
-## Hiermee ga je naar huis
+Onderweg leer je git. Met je AI. Ik heb het zo ook geleerd.
 
-1. Een AI-tool die op je eigen laptop draait.
-2. Je eigen publieke fork van deze repo, met jouw map erin.
-3. Een `context.md` die je tool elke sessie leest. Vanavond al bruikbaar.
-4. Een richting: welke hoek van de wereld bekijk je dertien weken?
-5. Een eerste post, met pull request tegen vrijdag.
+## Wat je om 13:30 hebt
 
-De zin die je op de tram naar huis moet kunnen zeggen: *"Mijn AI weet nu wie ik ben, en ik hoef het nooit meer te typen."*
+- Een AI-tool die op je laptop draait, in een terminal. Niet in een browser.
+- Je eigen kopie van deze cursus op GitHub, met jouw map erin.
+- `context.md`: het bestand dat je AI elke sessie leest.
+- Een richting voor dertien weken.
+- Een eerste post, ingediend tegen vrijdag.
 
 ## Verloop
 
-| Tijd | Wat |
+| | |
 |---|---|
-| 10:30 | Wie ben ik, wat bouw ik, wat brak er |
-| 10:45 | Wie zijn jullie |
-| 11:05 | Het vak in zes slides, en hoe je beoordeeld wordt |
-| 11:30 | Opzet, deel 1: tool, GitHub, fork, clone |
+| 10:30 | Wie ik ben, wat er bij mij draait |
+| 10:45 | Wie jullie zijn |
+| 11:05 | Opzet. Eén regel in je AI-tool, en dan volg je |
 | 12:20 | Pauze |
-| 12:30 | Opzet, deel 2: eigen map, `context.md`, push |
-| 13:10 | Je richting en je eerste post |
+| 12:30 | Het vak: wat je bouwt, wat je publiceert, hoe je beoordeeld wordt |
+| 12:55 | `context.md`: het verschil zien |
+| 13:10 | Je richting, je eerste post |
 
-## Materiaal
+## De opzet
 
-- `checklist.md` — de opzet in negen stappen, voor wie het zelf wil doen
-- `start-prompt.md` — dezelfde opzet, maar je AI-tool begeleidt je
-- `post-template.md` — de drie vragen voor je eerste post
-- `slides.html` — de slides
-- `../beoordeling/overzicht.md` — hoe je beoordeeld wordt, één pagina
-- `../beoordeling/build-brief.md` — wat je gaat bouwen (huiswerk)
+Plak dit in je AI-tool en volg:
 
-## Huiswerk voor week 2
+```
+Lees https://raw.githubusercontent.com/alexandernacho/advanced-ai-nl/main/.claude/skills/opzet/SKILL.md en volg de stappen met mij. Eén stap per keer, in het Nederlands.
+```
 
-1. Opzet afwerken als het vandaag niet lukte.
-2. Eerste post, pull request tegen **vrijdag 25 september**.
-3. Lees `cursus/beoordeling/build-brief.md` **samen met je AI-tool**. Vraag het om je drie ideeën te helpen vinden voor wat jij wil bouwen. Breng die drie ideeën mee.
+Je werkt in duo's. Klaar? Help je buur. Zelfde fout bij drie mensen? Dan komt hij op het scherm.
 
-## Als iets vastloopt
+Om 12:20 stoppen we, waar je ook staat. Wat niet af is, doe je thuis. Fork en clone moeten wel af zijn, anders zie je volgende week niets.
 
-1. Plak de foutmelding in je AI-tool: *"Leg uit wat hier misgaat en wat ik moet doen."*
-2. Vraag je buur.
-3. Vraag mij.
+## Je eerste post
+
+Drie vragen, een halve pagina. Template: `post-template.md`. Deze week telt de inhoud niet. De pijplijn wel: schrijven, pushen, pull request, merge. Beter dat die nu breekt dan in week 4.
+
+## Tegen woensdag 30 september
+
+1. Opzet af.
+2. Post plus pull request, tegen vrijdag 25 september.
+3. Lees `cursus/beoordeling/build-brief.md` met je AI. Vraag het om drie ideeën voor wat jij kan bouwen. Breng ze mee.
