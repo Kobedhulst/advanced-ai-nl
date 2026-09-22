@@ -1,8 +1,8 @@
-# De Signal
+# Wekelijkse post (building journal)
 
 15% van je cijfer. Elke week één post. Publiek.
 
-De Signal is je bouwdagboek. Elke week: wat je deze week met je tool deed, en wat er gebeurde. Met een cijfer erbij.
+De wekelijkse post is je building journal. Elke week: wat je deze week met je tool deed, en wat er gebeurde. Met een cijfer erbij.
 
 ## Hoe
 

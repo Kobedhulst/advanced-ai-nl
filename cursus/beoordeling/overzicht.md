@@ -7,7 +7,7 @@ Zes onderdelen. Zelfde gewichten voor 4 en 6 ECTS. Alles op bewijs, nooit op "he
 | Capstone-memo | 40% | Eén adviesnota: moet deze plek de tool gebruiken die ik bouwde? Ontwerp W12, definitief W13 |
 | Verdediging | 10% | Je verdedigt dat advies mondeling. W13 |
 | Twee pitches | 10% | Video van 3 minuten. W7 je richting, W11 je advies. 5% elk |
-| De Signal | 15% | Twaalf publieke posts, één per week. Drie worden grondig nagekeken: W4, W8, W11 |
+| Wekelijkse post (building journal) | 15% | Twaalf publieke posts, één per week. Drie worden grondig nagekeken: W4, W8, W11 |
 | De Build | 15% | Eén klein AI-hulpmiddel, gemeten op echte inputs. W4, W8, W12. 5% elk |
 | Portfolio en bijdrage | 10% | Drie korte reflecties met een gemeten cijfer erin, plus de feedback die je aan anderen geeft. W4, W8, W12 |
 
