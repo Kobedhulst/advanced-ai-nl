@@ -43,6 +43,22 @@ Stel de vragen één voor één. Wacht op elk antwoord. Vaag antwoord: vraag doo
 - <in de woorden van de student>
 ```
 
+## Twee extra bestanden
+
+Schrijf in dezelfde map, zodat de tool `context.md` vanzelf leest als de student daar opent:
+
+`studenten/<naam>/CLAUDE.md`:
+```
+@context.md
+```
+
+`studenten/<naam>/AGENTS.md`:
+```
+Lees eerst context.md in deze map. Daarin staat wie ik ben en hoe ik wil werken.
+```
+
+Claude Code leest `CLAUDE.md`, Codex leest `AGENTS.md`. Beide zoeken in de map waar de tool geopend is en in de mappen erboven. Daarom: de student opent de tool voortaan in `studenten/<naam>/`.
+
 ## Test
 
 Laat de student meteen een vraag stellen over de eigen job of studie. Antwoord met de context erin. De student moet het verschil zien met een leeg chatvenster.

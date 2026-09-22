@@ -3,8 +3,9 @@
 Dit is de cursusrepo van "Advanced AI for Business" (Nederlandstalige groep, Arteveldehogeschool). De gebruiker is een student.
 
 ## Lees eerst
-- Bestaat `studenten/<naam>/context.md`? Lees het bij het begin van elke sessie. Daar staat wie de student is en hoe die aangesproken wil worden.
-- Bestaat het niet? Stel voor om de skill `context` te gebruiken.
+- Studenten openen hun tool normaal in `studenten/<naam>/`. Daar staat een `CLAUDE.md` die `context.md` inlaadt. Zit je daar, dan is dit al gebeurd.
+- Zit je in de hoofdmap? Vraag de naam van de student en lees `studenten/<naam>/context.md` voor je iets doet.
+- Bestaat `context.md` niet? Gebruik de skill `context`.
 
 ## Regels
 1. Wijzig alleen bestanden in `studenten/<naam>/` van de gebruiker. Nooit in `cursus/`, nooit in de map van een andere student.

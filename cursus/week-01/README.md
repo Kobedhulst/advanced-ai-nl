@@ -6,7 +6,7 @@ Woensdag 23 september, 10:30–13:30.
 
 Je AI weet niets over jou. Elk gesprek begint van nul. Vandaag lossen we dat op, en daarna hoef je het nooit meer uit te leggen.
 
-Onderweg leer je git. Met je AI. Ik heb het zo ook geleerd.
+Onderweg leer je git. Je AI legt het uit terwijl je het doet. Ik heb het destijds zonder moeten leren. Jij hebt het na vandaag.
 
 ## Wat je om 13:30 hebt
 
@@ -30,7 +30,17 @@ Onderweg leer je git. Met je AI. Ik heb het zo ook geleerd.
 
 ## De opzet
 
-Plak dit in je AI-tool en volg:
+**Stap 0: de tool.** Je werkt in een terminal, niet in een browser. Welke tool hangt af van waar je voor betaalt.
+
+| Abonnement | Tool | Installeren |
+|---|---|---|
+| ChatGPT | Codex | `npm install -g @openai/codex`, dan `codex` en "Sign in with ChatGPT" |
+| Claude | Claude Code | macOS: `curl -fsSL https://claude.ai/install.sh \| bash` · Windows (PowerShell): `irm https://claude.ai/install.ps1 \| iex`, dan `claude` |
+| Gemini | Gemini CLI | `npm install -g @google/gemini-cli`, dan `gemini` |
+
+Geen `npm`? Installeer Node.js (LTS) van nodejs.org en open je terminal opnieuw.
+
+**Stap 1: de rest.** Plak dit in je tool en volg:
 
 ```
 Lees https://raw.githubusercontent.com/alexandernacho/advanced-ai-nl/main/.claude/skills/opzet/SKILL.md en volg de stappen met mij. Eén stap per keer, in het Nederlands.

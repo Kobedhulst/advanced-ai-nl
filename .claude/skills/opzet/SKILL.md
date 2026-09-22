@@ -11,7 +11,19 @@ Werkwijze: één stap per keer. Wacht op antwoord. Elke opdracht in één zin ui
 
 Verboden: iets wijzigen buiten `studenten/<naam>/`. Een sleutel of wachtwoord in een bestand zetten. Iets forceren of wissen bij een git-fout. Bij een fout: foutmelding lezen, uitleggen, kleinste fix voorstellen.
 
-Vraag eerst: besturingssysteem (macOS of Windows), ooit git gebruikt, al een GitHub-account. Sla over wat al in orde is.
+Vraag eerst: besturingssysteem (macOS of Windows), welke AI-tool de student gebruikt, ooit git gebruikt, al een GitHub-account. Sla over wat al in orde is.
+
+## 0. De tool
+
+De student werkt in een terminal-agent, niet in een browser. Welke hangt af van het abonnement:
+
+- Betaalt voor ChatGPT → **Codex**: `npm install -g @openai/codex` (macOS ook: `brew install --cask codex`). Start met `codex`, kies "Sign in with ChatGPT".
+- Betaalt voor Claude → **Claude Code**: macOS `curl -fsSL https://claude.ai/install.sh | bash`, Windows (PowerShell) `irm https://claude.ai/install.ps1 | iex`. Start met `claude`, log in.
+- Betaalt voor Gemini → **Gemini CLI**: `npm install -g @google/gemini-cli`. Start met `gemini`.
+
+`npm` ontbreekt? Installeer Node.js van nodejs.org (LTS), terminal opnieuw openen.
+
+Zit de student nu in een browser-chat? Dat is goed om te beginnen. Installeer de tool, en zeg dat de rest van de stappen in die tool verdergaan: daar plakt de student dezelfde openingsregel opnieuw.
 
 ## 1. Git
 
@@ -110,4 +122,6 @@ Zonder `gh`: fork openen op github.com → **Contribute** → **Open pull reques
 
 ## Klaar
 
-Zeg wat er nu staat: eigen map, contextbestand, open pull request. Wijs op de weekcyclus in `README.md`. Volgende week begint met `git pull upstream main`.
+Zeg wat er nu staat: eigen map, contextbestand, open pull request.
+
+Laatste instructie: voortaan open je je tool **in je eigen map** (`cd studenten/<naam>` en dan `claude` of `codex`). Dan leest hij `context.md` vanzelf, elke keer. Volgende week begint met `git pull upstream main`.
