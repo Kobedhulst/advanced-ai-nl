@@ -35,7 +35,7 @@ git push origin main
 git checkout -b week-05
 # werk in studenten/jouw-naam/
 git add studenten/jouw-naam
-git commit -m "week 5: contextaudit"
+git commit -m "week 5: ruisvloer gemeten"
 git push origin week-05
 ```
 
