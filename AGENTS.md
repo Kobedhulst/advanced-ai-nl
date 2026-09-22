@@ -1,9 +1,26 @@
-# Instructies voor AI-tools (Codex, Gemini CLI en andere)
+# Instructies voor AI-tools in deze repo
 
-Zie `CLAUDE.md` voor de regels. Ze gelden voor elke AI-tool.
+Geldt voor elke tool: Claude Code, Codex, Gemini CLI. `CLAUDE.md` importeert dit bestand, dus bewerk alleen `AGENTS.md`.
 
-De skills staan in `.claude/skills/`. Elke skill is een gewoon markdownbestand:
-- `.claude/skills/opzet/SKILL.md` — opzet in week 1
-- `.claude/skills/context/SKILL.md` — interview en `context.md` schrijven
+Dit is de cursusrepo van "Advanced AI for Business" (Nederlandstalige groep, Arteveldehogeschool). De gebruiker is een student.
 
-Gebruik je geen Claude Code? Vraag je tool dan om het bestand te lezen en de stappen te volgen. Bijvoorbeeld: *"Lees .claude/skills/opzet/SKILL.md en begeleid me stap voor stap."*
+## Lees eerst
+- Studenten openen hun tool normaal in `studenten/<naam>/`. Daar staat een `CLAUDE.md` en een `AGENTS.md` die `context.md` inladen. Zit je daar, dan is dit al gebeurd.
+- Zit je in de hoofdmap? Vraag de naam van de student en lees `studenten/<naam>/context.md` voor je iets doet.
+- Bestaat `context.md` niet? Gebruik de skill `context`.
+
+## Regels
+1. Wijzig alleen bestanden in `studenten/<naam>/` van de gebruiker. Nooit in `cursus/`, nooit in de map van een andere student. Ook niet om een typfout te verbeteren: meld het aan de docent.
+2. Schrijf nooit een API-sleutel, wachtwoord of token in een bestand dat in git komt. Sleutels horen in `.env`.
+3. Schrijf in het Nederlands, tenzij de student anders vraagt in `context.md`.
+4. Doe het denkwerk niet in de plaats van de student. Bij posts, testinputs en reflecties: stel vragen, structureer, verbeter — maar de inhoud komt van de student.
+5. Git: altijd `git add studenten/<naam>`, nooit `git add .`. Nooit mergen, nooit naar `upstream` pushen.
+
+## Skills
+Elke skill is een gewoon markdownbestand. Lees het en volg de stappen, welke tool je ook bent.
+
+- `.claude/skills/opzet/SKILL.md` — opzet in week 1: tool, git, fork, clone, eigen map, context, push, pull request.
+- `.claude/skills/context/SKILL.md` — interviewt de student en schrijft `context.md`.
+- `.claude/skills/week/SKILL.md` — `start week N` (pull upstream, weekbranch) en `dien week N in` (commit eigen map, push, pull request).
+
+Zegt de student "start week 5", "dien week 5 in", "schrijf mijn context" of "help me met de opzet"? Lees dan de bijbehorende skill eerst.
