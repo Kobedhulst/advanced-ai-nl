@@ -1,0 +1,25 @@
+# Sleutels en geheimen — nooit in een publieke repo
+.env
+.env.*
+*.key
+*.pem
+
+# Zware bestanden
+*.pdf
+*.docx
+*.pptx
+*.xlsx
+*.zip
+*.mp4
+*.mov
+*.png
+*.jpg
+*.jpeg
+!studenten/**/posts/*.png
+!studenten/**/posts/*.jpg
+
+# Systeem en tooling
+node_modules/
+.DS_Store
+__pycache__/
+.venv/
