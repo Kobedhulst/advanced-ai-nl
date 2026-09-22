@@ -33,6 +33,8 @@ Fouten:
 
 Doel: de post staat in de pull request, met de juiste titel, vóór vrijdag.
 
+**Week 1 is anders.** De pull request staat al open sinds de opzet, vanaf branch `main`. Schrijf de post in `posts/week-01.md`, dan `git add studenten/<naam>`, commit, `git push origin main`. Klaar; de pull request werkt zichzelf bij. De rest van dit hoofdstuk is voor week 2 en later.
+
 1. Op de goede branch? `git branch --show-current` moet `week-NN` geven. Zo niet: `git checkout week-NN`.
 2. Bestaat `studenten/<naam>/posts/week-NN.md`? Zo niet: stop. Schrijf de post eerst. Template: `cursus/week-01/post-template.md`. Stel de vragen, schrijf op wat de student zegt, niet mooier.
 3. Check `git status`. Alleen bestanden in `studenten/<naam>/` mogen mee. Staat er iets anders? Toon het en laat het buiten de commit.

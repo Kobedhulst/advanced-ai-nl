@@ -103,19 +103,13 @@ Fouten:
 
 Laat de student de fork op github.com verversen. Staat de map er? Verder.
 
-## 9. Eerste post
-
-Als er tijd is: `studenten/<naam>/posts/week-01.md`, template in `cursus/week-01/post-template.md`. Drie vragen, één voor één. Schrijf op wat de student zegt, in de woorden van de student. Niet mooier maken.
-
-Commit en push opnieuw.
-
-## 10. Pull request
+## 9. Pull request
 
 Een pull request is de vraag aan de docent om jouw werk in de cursusrepo op te nemen. Elke week het indienmoment.
 
 Met `gh`:
 ```
-gh pr create --repo alexandernacho/advanced-ai-nl --base main --head JOUWNAAM:main --title "week-01 — Voornaam Achternaam" --body "Profiel, context, eerste post."
+gh pr create --repo alexandernacho/advanced-ai-nl --base main --head JOUWNAAM:main --title "week-01 — Voornaam Achternaam" --body "Profiel en context."
 ```
 Zonder `gh`: fork openen op github.com → **Contribute** → **Open pull request** → titel `week-01 — Voornaam Achternaam` → **Create pull request**.
 

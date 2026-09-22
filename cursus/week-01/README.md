@@ -51,7 +51,7 @@ Om 12:20 stoppen we, waar je ook staat. Wat niet af is, doe je thuis. Fork en cl
 
 ## Je eerste post
 
-Drie vragen, een halve pagina. Template: `post-template.md`. Deze week telt de inhoud niet. De pijplijn wel: schrijven, pushen, pull request, merge. Beter dat die nu breekt dan in week 4.
+Drie vragen, een halve pagina. Template: `post-template.md`. Zeg tegen je tool: `dien week 1 in`. Je pull request van de opzet staat al open; de post komt erbij. Deze week telt de inhoud niet. De pijplijn wel: schrijven, pushen, pull request, merge. Beter dat die nu breekt dan in week 4.
 
 ## Tegen woensdag 30 september
 
