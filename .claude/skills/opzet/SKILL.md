@@ -58,7 +58,7 @@ Staat bij `origin` `alexandernacho`? Dan is de cursusrepo gecloned in plaats van
 
 Ontbreekt `upstream`? Zonder upstream ziet de student volgende week het nieuwe lesmateriaal niet. Voeg toe zoals hierboven.
 
-Ben je Claude Code of een andere agent die vanaf hier lokaal in de map werkt? Lees dan `CLAUDE.md` in de hoofdmap voor de regels.
+Ben je Claude Code of een andere agent die vanaf hier lokaal in de map werkt? Lees dan `AGENTS.md` in de hoofdmap voor de regels.
 
 ## 5. Eigen map
 
