@@ -1,6 +1,6 @@
 # Instructies voor AI-tools in deze repo
 
-Geldt voor elke tool: Claude Code, Codex, Gemini CLI. `CLAUDE.md` importeert dit bestand, dus bewerk alleen `AGENTS.md`.
+Geldt voor elke tool: Claude Code, Codex of een andere agent. `CLAUDE.md` importeert dit bestand, dus bewerk alleen `AGENTS.md`.
 
 Dit is de cursusrepo van "Advanced AI for Business" (Nederlandstalige groep, Arteveldehogeschool). De gebruiker is een student.
 

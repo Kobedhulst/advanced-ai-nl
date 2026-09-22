@@ -19,7 +19,6 @@ De student werkt in een terminal-agent, niet in een browser. Welke hangt af van 
 
 - Betaalt voor ChatGPT → **Codex**: `npm install -g @openai/codex` (macOS ook: `brew install --cask codex`). Start met `codex`, kies "Sign in with ChatGPT".
 - Betaalt voor Claude → **Claude Code**: macOS `curl -fsSL https://claude.ai/install.sh | bash`, Windows (PowerShell) `irm https://claude.ai/install.ps1 | iex`. Start met `claude`, log in.
-- Betaalt voor Gemini → **Gemini CLI**: `npm install -g @google/gemini-cli`. Start met `gemini`.
 
 `npm` ontbreekt? Installeer Node.js van nodejs.org (LTS), terminal opnieuw openen.
 

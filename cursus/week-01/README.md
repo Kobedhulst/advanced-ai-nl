@@ -36,7 +36,6 @@ Onderweg leer je git. Je AI legt het uit terwijl je het doet. Ik heb het destijd
 |---|---|---|
 | ChatGPT | Codex | `npm install -g @openai/codex`, dan `codex` en "Sign in with ChatGPT" |
 | Claude | Claude Code | macOS: `curl -fsSL https://claude.ai/install.sh \| bash` · Windows (PowerShell): `irm https://claude.ai/install.ps1 \| iex`, dan `claude` |
-| Gemini | Gemini CLI | `npm install -g @google/gemini-cli`, dan `gemini` |
 
 Geen `npm`? Installeer Node.js (LTS) van nodejs.org en open je terminal opnieuw.
 

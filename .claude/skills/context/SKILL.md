@@ -58,7 +58,7 @@ Lees eerst context.md in deze map. Daarin staat wie ik ben en hoe ik wil werken.
 @context.md
 ```
 
-Claude Code leest `CLAUDE.md`, Codex en Gemini CLI lezen `AGENTS.md`. Eén bron: `AGENTS.md`; `CLAUDE.md` importeert alleen. Beide tools zoeken in de map waar de tool geopend is en in de mappen erboven. Daarom: de student opent de tool voortaan in `studenten/<naam>/`.
+Claude Code leest `CLAUDE.md`, Codex leest `AGENTS.md`. Eén bron: `AGENTS.md`; `CLAUDE.md` importeert alleen. Beide tools zoeken in de map waar de tool geopend is en in de mappen erboven. Daarom: de student opent de tool voortaan in `studenten/<naam>/`.
 
 ## Test
 
