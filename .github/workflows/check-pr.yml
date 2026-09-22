@@ -1,0 +1,92 @@
+name: Controle pull request
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v4
+
+      - name: Changed files
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --paginate "repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files" \
+            --jq '.[].filename' > changed.txt
+          echo "Gewijzigde bestanden:"; cat changed.txt
+
+      - name: Alleen eigen map
+        env:
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+        run: |
+          set -e
+          fail=0
+          folders=$(sed -n 's#^studenten/\([^/]*\)/.*#\1#p' changed.txt | sort -u)
+          outside=$(grep -v '^studenten/[^/]*/' changed.txt || true)
+          if [ -n "$outside" ]; then
+            echo "::error::Bestanden buiten studenten/<naam>/ mogen niet in een pull request:"; echo "$outside"; fail=1
+          fi
+          n=$(echo "$folders" | grep -c . || true)
+          if [ "$n" -ne 1 ]; then
+            echo "::error::Een pull request raakt precies één studentmap. Gevonden: $n ($folders)"; fail=1
+          fi
+          if echo "$folders" | grep -qx '_voorbeeld'; then
+            echo "::error::studenten/_voorbeeld is van de docent."; fail=1
+          fi
+          # Naam in profile.md moet de PR-auteur zijn
+          if [ "$n" -eq 1 ]; then
+            owner=$(sed -n 's/^- *GitHub: *@\{0,1\}\([A-Za-z0-9-]*\).*/\1/p' "studenten/$folders/profile.md" 2>/dev/null | head -1 | tr 'A-Z' 'a-z')
+            author=$(echo "$PR_AUTHOR" | tr 'A-Z' 'a-z')
+            if [ -z "$owner" ]; then
+              echo "::warning::studenten/$folders/profile.md heeft geen regel '- GitHub: <naam>'. Kan eigenaar niet controleren."
+            elif [ "$owner" != "$author" ]; then
+              echo "::error::Map studenten/$folders hoort bij GitHub-gebruiker '$owner', maar de pull request komt van '$author'."; fail=1
+            fi
+          fi
+          exit $fail
+
+      - name: Geen sleutels, geen grote bestanden
+        run: |
+          set -e
+          fail=0
+          while IFS= read -r f; do
+            [ -f "$f" ] || continue
+            case "$f" in
+              *.env|*/.env.*|*.key|*.pem|*.p12|*.pfx)
+                echo "::error::Sleutelbestand in de pull request: $f"; fail=1;;
+            esac
+            case "$f" in
+              *.png|*.jpg|*.jpeg|*.gif|*.webp)
+                case "$f" in
+                  studenten/*/posts/*) ;;
+                  *) echo "::error::Afbeeldingen alleen in posts/: $f"; fail=1;;
+                esac
+                size=$(wc -c < "$f")
+                if [ "$size" -gt 307200 ]; then
+                  echo "::error::Afbeelding groter dan 300 KB ($size bytes): $f"; fail=1
+                fi;;
+              *.pdf|*.docx|*.pptx|*.xlsx|*.zip|*.mp4|*.mov)
+                echo "::error::Geen binaire documenten in de repo: $f"; fail=1;;
+            esac
+            if grep -nE 'sk-[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{30,}|AIza[0-9A-Za-z_-]{30,}' "$f" >/dev/null 2>&1; then
+              echo "::error::Dit lijkt op een API-sleutel: $f"; fail=1
+            fi
+          done < changed.txt
+          exit $fail
+
+      - name: Titel
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          title="$PR_TITLE"
+          if ! echo "$title" | grep -qE '^week-[0-9]{2} — .+ .+'; then
+            echo "::warning::Titel hoort 'week-NN — Voornaam Achternaam' te zijn. Nu: $title"
+          fi

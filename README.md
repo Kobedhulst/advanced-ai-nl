@@ -26,6 +26,8 @@ De repo is publiek. Wat je erin zet, kan iedereen lezen. Dat is geen bijwerking,
 
 ## Elke week
 
+Twee zinnen tegen je AI-tool, in je eigen map: `start week 5` aan het begin van de les, `dien week 5 in` vóór vrijdag. De skill `week` doet dan dit:
+
 ```bash
 git checkout main
 git pull upstream main        # nieuw lesmateriaal
@@ -37,7 +39,7 @@ git commit -m "week 5: contextaudit"
 git push origin week-05
 ```
 
-Dan een pull request naar deze repo, titel `week-05 — Voornaam Achternaam`. Eén klasgenoot reageert. Ik merge. Vanaf dan staat je post publiek.
+Dan een pull request naar deze repo, titel `week-05 — Voornaam Achternaam`. Een controle op GitHub kijkt of je alleen je eigen map raakt en geen sleutels of grote bestanden meestuurt. Rood kruis? Lees de melding, herstel, push opnieuw. Eén klasgenoot reageert. Ik merge. Vanaf dan staat je post publiek.
 
 ## Vier regels
 

@@ -16,3 +16,4 @@ Dit is de cursusrepo van "Advanced AI for Business" (Nederlandstalige groep, Art
 ## Skills
 - `opzet` — begeleidt de opzet in week 1 (map, profiel, context, push, pull request).
 - `context` — interviewt de student en schrijft `context.md`.
+- `week` — `start week N` (pull upstream, weekbranch) en `dien week N in` (commit eigen map, push, pull request).
