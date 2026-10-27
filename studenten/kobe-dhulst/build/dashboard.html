@@ -1,0 +1,211 @@
+<title>Schoolmail-sorteerder</title>
+<meta name="description" content="Score, foutmarge, kosten en waarde van mijn schoolmail-sorteerder, gemeten in week 5.">
+<style>
+/* Layout: één smalle kolom zoals een mailbox; samenvatting bovenaan, daarna meting per onderdeel. */
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --fg: #1c2330;
+  --muted: #5d6676;
+  --line: #dde1e8;
+  --accent: #2d5bd3;
+  --accent-soft: #e4ebfb;
+  --good: #1f7a4d;
+  --good-soft: #e1f2e9;
+  --warn: #9a5b00;
+  --warn-soft: #fbefd9;
+  --bad: #b3261e;
+  --bad-soft: #f9e3e1;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-head: "Avenir Next", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif;
+  --font-data: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12161d; --surface: #1a1f28; --fg: #e6e9ef; --muted: #9aa3b2; --line: #2c3340;
+    --accent: #8aa8f5; --accent-soft: #24304a;
+    --good: #6fcf9b; --good-soft: #1b3326; --warn: #f0b85a; --warn-soft: #3a2d15; --bad: #f08a82; --bad-soft: #3d1f1d;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12161d; --surface: #1a1f28; --fg: #e6e9ef; --muted: #9aa3b2; --line: #2c3340;
+  --accent: #8aa8f5; --accent-soft: #24304a;
+  --good: #6fcf9b; --good-soft: #1b3326; --warn: #f0b85a; --warn-soft: #3a2d15; --bad: #f08a82; --bad-soft: #3d1f1d;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 15px; line-height: 1.5;
+  margin: 0; padding-inline: 16px; padding-block: 24px 48px;
+}
+main { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+h1, h2 { font-family: var(--font-head); text-wrap: balance; margin: 0; }
+h1 { font-size: 1.75rem; line-height: 1.2; }
+h2 { font-size: 1.15rem; }
+p { margin: 0; max-width: 65ch; }
+table { font: inherit; color: inherit; border-collapse: collapse; width: 100%; }
+.sub { color: var(--muted); }
+.eyebrow { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+header { display: flex; flex-direction: column; gap: 8px; }
+section { display: flex; flex-direction: column; gap: 12px; }
+.num { font-variant-numeric: tabular-nums; }
+.data { font-family: var(--font-data); font-size: 0.85em; }
+
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.tile .big { font-family: var(--font-head); font-size: 1.6rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.tile .small { font-size: 0.85rem; color: var(--muted); }
+
+.pill { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; white-space: nowrap; }
+.pill.good { background: var(--good-soft); color: var(--good); }
+.pill.warn { background: var(--warn-soft); color: var(--warn); }
+.pill.bad { background: var(--bad-soft); color: var(--bad); }
+.pill.accent { background: var(--accent-soft); color: var(--accent); }
+
+.scroll { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+.scroll table th, .scroll table td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+.scroll table tr:last-child td { border-bottom: 0; }
+.scroll table th { font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); font-weight: 600; white-space: nowrap; }
+td.r, th.r { text-align: right; }
+tr.chosen td { background: var(--accent-soft); }
+
+/* Bereikbalk op een schaal van 0 tot 10 */
+.ranges { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+.range-row { display: grid; grid-template-columns: 9.5rem 1fr 3.2rem; gap: 10px; align-items: center; }
+.range-row .lbl { font-size: 0.9rem; min-width: 0; }
+.track { position: relative; height: 14px; background: var(--bg); border-radius: 7px; border: 1px solid var(--line); }
+.band { position: absolute; top: -1px; bottom: -1px; border-radius: 7px; background: var(--accent); min-width: 14px; }
+.band.old { background: var(--muted); }
+.axis { display: grid; grid-template-columns: 9.5rem 1fr 3.2rem; gap: 10px; font-size: 0.75rem; color: var(--muted); }
+.axis .ticks { display: flex; justify-content: space-between; }
+.range-row .val { font-variant-numeric: tabular-nums; font-weight: 600; text-align: right; }
+
+.note { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--warn); border-radius: 8px; padding: 12px 14px; }
+footer { font-size: 0.85rem; color: var(--muted); }
+
+@media (max-width: 480px) {
+  .range-row, .axis { grid-template-columns: 6.5rem 1fr 2.8rem; }
+  h1 { font-size: 1.45rem; }
+}
+</style>
+
+<main>
+  <header>
+    <span class="eyebrow">Advanced AI for Business · Build · week 5</span>
+    <h1>Schoolmail-sorteerder</h1>
+    <p class="sub">Mijn tool geeft één schoolmail één label: <span class="pill bad">dringend</span> <span class="pill warn">later</span> <span class="pill accent">info</span> <span class="pill good">negeren</span> of <span class="pill">onzeker</span>. Gemeten op 27 oktober 2026, prompt v2, testset T01–T10.</p>
+  </header>
+
+  <section aria-labelledby="h-kort">
+    <h2 id="h-kort">In het kort</h2>
+    <div class="tiles">
+      <div class="tile">
+        <span class="eyebrow">Score</span>
+        <span class="big">8–9 / 10</span>
+        <span class="small">set v1, Haiku 5.5, n = 10, 3 runs</span>
+      </div>
+      <div class="tile">
+        <span class="eyebrow">Set v2 · 30 mails</span>
+        <span class="big">23 / 30</span>
+        <span class="small">Haiku 5.5, n = 30, 1 run · controle T11–T30: 15/20</span>
+      </div>
+      <div class="tile">
+        <span class="eyebrow">Claim week 3</span>
+        <span><span class="pill good">bevestigd</span></span>
+        <span class="small">v2 (8–9) ligt hoger dan v1 (7–7)</span>
+      </div>
+      <div class="tile">
+        <span class="eyebrow">Kost per jaar</span>
+        <span class="big">± € 0,15</span>
+        <span class="small">650 mails, Haiku 5.5</span>
+      </div>
+      <div class="tile">
+        <span class="eyebrow">Netto per jaar</span>
+        <span class="big">€ 91–106</span>
+        <span class="small">automatisch in mijn mailbox</span>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-fout">
+    <h2 id="h-fout">Score met foutmarge</h2>
+    <p class="sub">Elke versie 3 keer gedraaid op dezelfde 10 mails, telkens een nieuwe sessie zonder tools. De balk toont de laagste tot de hoogste score.</p>
+    <div class="ranges" role="img" aria-label="Foutmarge per versie: v1 op Opus 7 tot 7, v2 op Opus 8 tot 9, v2 op Haiku 5.5 8 tot 9, op een schaal van 0 tot 10">
+      <div class="range-row">
+        <span class="lbl">v1 · Opus 5.5</span>
+        <div class="track"><div class="band old" style="left:70%;width:0%"></div></div>
+        <span class="val">7–7</span>
+      </div>
+      <div class="range-row">
+        <span class="lbl">v2 · Opus 5.5</span>
+        <div class="track"><div class="band" style="left:80%;width:10%"></div></div>
+        <span class="val">8–9</span>
+      </div>
+      <div class="range-row">
+        <span class="lbl">v2 · Haiku 5.5</span>
+        <div class="track"><div class="band" style="left:80%;width:10%"></div></div>
+        <span class="val">8–9</span>
+      </div>
+      <div class="axis" aria-hidden="true">
+        <span></span>
+        <span class="ticks"><span>0</span><span>5</span><span>10</span></span>
+        <span></span>
+      </div>
+    </div>
+    <div class="note">
+      <strong>Vaste fout: T07, een verificatiecode.</strong> Verwacht <span class="pill bad">dringend</span>, de tool zegt <span class="pill warn">later</span>, omdat er geen datum in de mail staat. Fout in alle 9 runs hierboven, met beide versies en beide modellen.
+    </div>
+  </section>
+
+  <section aria-labelledby="h-setups">
+    <h2 id="h-setups">Drie setups</h2>
+    <p class="sub">Prompt v2, één run per setup op T01–T10. Alle drie liggen binnen de foutmarge (8–9), dus op score niet te onderscheiden. Ik kies op kost.</p>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr><th>Setup</th><th>Model</th><th>Effort</th><th class="r">Score</th><th class="r">Output-tokens</th><th class="r">Per run</th><th class="r">Per jaar</th></tr>
+        </thead>
+        <tbody class="num">
+          <tr><td>A</td><td>Sonnet 5.5</td><td>medium</td><td class="r">9/10</td><td class="r">118</td><td class="r">€ 0,0029</td><td class="r">€ 1,86</td></tr>
+          <tr class="chosen"><td>B <span class="pill accent">gekozen</span></td><td>Haiku 5.5</td><td>standaard</td><td class="r">9/10</td><td class="r">284</td><td class="r">€ 0,0002</td><td class="r">€ 0,14</td></tr>
+          <tr><td>C</td><td>Opus 5.5</td><td>standaard</td><td class="r">9/10</td><td class="r">136</td><td class="r">€ 0,0060</td><td class="r">€ 3,93</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sub">Kost per run = ± 1.000 input-tokens (prompt + mail) × inputprijs + output-tokens × outputprijs. Prijzen van 21 oktober 2026, 1 dollar = 0,90 euro. Haiku 5.5 daarna nog 2 keer gedraaid: 9, 9 en 8 op 10.</p>
+  </section>
+
+  <section aria-labelledby="h-chain">
+    <h2 id="h-chain">Value chain</h2>
+    <p class="sub">Haiku 5.5, automatisch in mijn mailbox, bij 9 op 10 juist.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Schakel</th><th>Waarde</th><th>Bron</th></tr></thead>
+        <tbody>
+          <tr><td>Met de hand</td><td class="num">lezen 25 s · beslissen 10 s · verplaatsen 5 s = <strong>40 s</strong></td><td>gemeten</td></tr>
+          <tr><td>Met de tool</td><td class="num">draaien 0 s · nakijken 8 s · herstellen 10% × 40 s = 4 s · <strong>12 s</strong></td><td>nakijken gemeten (1 mail), draaien aanname</td></tr>
+          <tr><td>Winst per mail</td><td class="num"><strong>28 s</strong></td><td></td></tr>
+          <tr><td>Volume</td><td class="num">± 3 per dag · ± 15 per week · 65 per maand · <strong>650 per jaar</strong></td><td>geteld (2 weken × 2), 10 maanden (aanname)</td></tr>
+          <tr><td>Uren gewonnen</td><td class="num"><strong>5,1 u per jaar</strong></td><td>650 × 28 s</td></tr>
+          <tr><td>Uurkost</td><td class="num">€ 14 bruto ≈ <strong>€ 21</strong> voor de werkgever</td><td>loon jobstudent × 1,5 (Acerta, Securex)</td></tr>
+          <tr><td>Waarde</td><td class="num"><strong>€ 106 per jaar</strong></td><td>5,1 × 21</td></tr>
+          <tr><td>Kost van de tool</td><td class="num"><strong>± € 0,15 per jaar</strong></td><td>gemeten</td></tr>
+          <tr><td>Netto</td><td class="num"><strong>± € 106 per jaar</strong></td><td></td></tr>
+          <tr><td>Bereik</td><td class="num">bij 8 op 10: <strong>± € 91</strong> · bij 9 op 10: <strong>± € 106</strong></td><td>foutmarge</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-zwak">
+    <h2 id="h-zwak">Mijn zwakste cijfer</h2>
+    <div class="note">
+      <strong>65 mails per maand.</strong> Geteld in de eerste weken van het semester, misschien meer dan gemiddeld. Bij de helft blijft er ± € 53 per jaar over. Het volume verschuift het netto met ± € 53, de foutmarge maar met ± € 15.
+    </div>
+    <p class="sub">Met mijn echte loon (€ 14, zonder × 1,5) is het netto € 61 tot € 71 per jaar. Met copy-paste in plaats van automatisch is de tool trager dan met de hand (48 s tegenover 40 s per mail).</p>
+  </section>
+
+  <footer>Bronnen: <span class="data">build/foutmarge.md</span>, <span class="data">build/modellen.md</span>, <span class="data">build/kosten.md</span>. Geen echte namen of mails op deze pagina.</footer>
+</main>

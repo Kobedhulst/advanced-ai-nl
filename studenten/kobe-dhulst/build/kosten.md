@@ -33,6 +33,12 @@ $0,0481 voor Haiku 4.5. Het grootste deel is de cache write: 19,8k × $2/M ≈ $
 
 Haiku 4.5 gaf bij T01 `negeren`, fout. Opus 5.5 gaf twee keer `info`. Mijn 9 op 10 is gemeten met Opus 5.5, niet met Haiku. Zie `log.md`.
 
+### Gecheckt in week 5: welke Haiku?
+
+In week 5 bleek dat `/model haiku` Haiku 5.5 kiest, en dat die een tiende kost van Haiku 4.5. Ik heb het nagekeken: mijn meting is met **Haiku 4.5**. Ik zette het model expliciet met `/model claude-haiku-4-5`, en `/cost` toonde `claude-haiku-4-5`. Mijn prijs ($1 input, $5 output per miljoen) klopt dus. Geen correctie nodig.
+
+Ter vergelijking, Haiku 5.5 ($0,10 input, $0,50 output per miljoen, prijs van 21 oktober 2026): ± 1k input × $0,10/M + 1,2k output × $0,50/M = $0,0007 ≈ **€ 0,0006 per run**. Niet gemeten met Haiku 5.5: ik neem aan dat die evenveel tokens gebruikt. De echte cijfers voor Haiku 5.5 staan in `modellen.md`.
+
 ## Ronde 2: wat kost het per maand?
 
 **Volume:** 60 tot 70 schoolmails per maand. Ik telde de mails van de afgelopen twee weken en deed dat × 2. Ik reken met 65. Let op: het zijn de eerste weken van het semester, dan komen er misschien meer mails dan gemiddeld.
@@ -65,3 +71,24 @@ Opus 5.5 = ± 1k input × $4/M + 1,2k output × $20/M = $0,028 ≈ €0,025 per 
 | Netto (automatisch) | **± € 65 per jaar** (Opus) · **± € 77 per jaar** (Haiku) | |
 | Netto (copy-paste) | 650 × −8 s = −1,4 u × 14 = −€ 20, min € 16 = **± −€ 36 per jaar** (Opus) | |
 | Zwakste cijfer | Nakijken 8 s: gemeten op één mail. Is het 16 s, dan wint de tool 24 s per mail: 4,3 u en ± € 45 per jaar netto (Opus). | |
+
+## Value chain week 5: met de foutmarge erin
+
+Haiku 5.5, automatisch in mijn mailbox. Score uit `modellen.md`: 8–9 op 10 (n = 10, 3 runs).
+
+| Schakel | Waarde | Bron |
+|---|---|---|
+| Met de hand | Openen en lezen 25 s · beslissen 10 s · verplaatsen 5 s = **40 s** | gemeten (week 4) |
+| Score | 9 op 10 (foutmarge 8–9, n = 10, 3 runs) | gemeten, Haiku 5.5 |
+| Met de tool | Draaien 0 s · nakijken 8 s · fouten herstellen 10% × 40 s = 4 s · samen **12 s** | nakijken gemeten (1 mail), draaien aanname |
+| Winst per mail | 40 − 12 = **28 s** | |
+| Volume | ± 3 per dag · ± 15 per week · 65 per maand · **650 per jaar** | geteld (2 weken × 2), 10 maanden per jaar (aanname) |
+| Uren gewonnen | ± 1,4 min per dag · 7 min per week · 30 min per maand · **5,1 u per jaar** | 650 × 28 s |
+| Uurkost | **€ 14 bruto ≈ € 21 voor de werkgever** | mijn loon als jobstudent, × 1,5 (Acerta, Securex: vakantiegeld, 13de maand, 25–27% sociale bijdragen) |
+| Waarde | 5,1 × 21 = **€ 106 per jaar** | |
+| Kost van de tool | 650 × € 0,00023 = **± € 0,15 per jaar** (Haiku 5.5: ± 1.000 tokens in, ± 310 uit) | gemeten (`modellen.md`) |
+| Netto | **± € 106 per jaar** | |
+| Bereik | Bij 8 op 10: 16 s met de tool, 24 s winst, 4,3 u, **± € 91** · bij 9 op 10: **± € 106** | foutmarge |
+| Zwakste cijfer | Het volume van 65 mails per maand: geteld in de eerste weken van het semester. Is het de helft, dan blijft er ± € 53 per jaar over. Het volume verschuift het netto met ± € 53, de foutmarge maar met ± € 15. | |
+
+Met mijn echte loon (€ 14, zonder × 1,5) is het netto € 61 tot € 71 per jaar.
